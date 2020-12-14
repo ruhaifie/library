@@ -2,8 +2,8 @@
 const express = require('express'); //express variable
 const router = express.Router(); //router variable
 
-//above: set rule
-//below use the set above
+//above: set variable
+//below: use the variable 
 
 router.get('/', (req, res) => { //req = request res = respond
     //res.send('hello');

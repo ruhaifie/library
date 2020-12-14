@@ -22,21 +22,20 @@ app.use(expressLayouts); //use from const expressLayouts
 app.use(express.static('public')); //folder public
 
 
-
+//how to setup mongoDB
 const mongoose = require('mongoose'); //setup variable to use mongoose library
 mongoose.connect(process.env.DATABASE_URL, { //set up connection for database, URL for connection, connect to local mongo DB server, variable for database URL
     useNewUrlParser: true,
     useUnifiedTopology: true
-}); //how to setup mongoDB
+});
 const db = mongoose.connection; //setup log to use below
-db.on('error', error => console.error(error)); //print error
+db.on('error', error => console.error(error)); //print error    //i think 'error' 'open ' is the event
 db.once('open', () => console.log('Connected to Mongoose')); //run db for first time
 
 //const url = 'mongodb://127.0.0.1:27017/mybrary';
-
-
+/* http://localhost:27017/ */
 
 app.use('/', indexRouter); //use indexRouter show the file path 
 
 //want app to listen to port, env = environment
-app.listen(process.env.PORT || 27017); //node server, port 3030
+app.listen(process.env.PORT || 27017); //node server, port 27017
