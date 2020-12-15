@@ -1,5 +1,5 @@
 if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config(); //use config() instead of .parse()
+    require('dotenv').config(); //use config() instead of .parse() & load()
 }
 //to load from .env file & import to process inside this server.js
 
@@ -8,7 +8,9 @@ const express = require('express'); //to use express library
 const app = express();
 const expressLayouts = require('express-ejs-layouts');
 
+/* router */
 const indexRouter = require('./routes/index'); //file path to view index.js
+const authorRouter = require('./routes/authors')
 
 //above is set of rule/variable/path
 //below is: process use from rule from above
@@ -35,7 +37,9 @@ db.once('open', () => console.log('Connected to Mongoose')); //run db for first 
 //const url = 'mongodb://127.0.0.1:27017/mybrary';
 /* http://localhost:27017/ */
 
+/* use the routes */
 app.use('/', indexRouter); //use indexRouter show the file path 
+app.use('/authors', authorRouter)
 
 //want app to listen to port, env = environment
 app.listen(process.env.PORT || 27017); //node server, port 27017
