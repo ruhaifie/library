@@ -27,7 +27,10 @@ app.use(express.static('public')); //folder public
 //tell express how to use the body parser library
 //send the value via url to server
 //set limit server can accept
-app.use(bodyParser.urlencoded({limit: '10mb', extended: false})) 
+app.use(bodyParser.urlencoded({
+    limit: '10mb',
+    extended: false
+}))
 
 
 //how to setup mongoDB

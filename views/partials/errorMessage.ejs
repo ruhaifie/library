@@ -1,0 +1,7 @@
+<!-- use "=" to render messages in ejs file-->
+<!-- no = sign,not output in html in ejs file-->
+
+<!-- need to set errorMessage variable, if not error coz not define -->
+<% if (locals.errorMessage != null) { %>
+<%= errorMessage  %>
+<% } %>
