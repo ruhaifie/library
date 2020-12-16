@@ -3,10 +3,11 @@ if (process.env.NODE_ENV !== 'production') {
 }
 //to load from .env file & import to process inside this server.js
 
-// load the things we need
+// load the package/library we need
 const express = require('express'); //to use express library
 const app = express();
 const expressLayouts = require('express-ejs-layouts');
+const bodyParser = require('body-parser');
 
 /* router */
 const indexRouter = require('./routes/index'); //file path to view index.js
@@ -22,6 +23,11 @@ app.set('layout', 'layouts/layout'); //folder views/layouts/layout.ejs
 
 app.use(expressLayouts); //use from const expressLayouts
 app.use(express.static('public')); //folder public
+
+//tell express how to use the body parser library
+//send the value via url to server
+//set limit server can accept
+app.use(bodyParser.urlencoded({limit: '10mb', extended: false})) 
 
 
 //how to setup mongoDB

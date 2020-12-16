@@ -17,7 +17,7 @@ router.get('/new', (req, res) => {
     /* http://localhost:27017/authors/new */
 })
 
-//create author route
+//create author route, POST route/request to server
 router.post('/', (req, res) => {
     res.send('Create')
 })
