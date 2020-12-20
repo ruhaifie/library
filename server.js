@@ -12,6 +12,7 @@ const bodyParser = require('body-parser');
 /* router */
 const indexRouter = require('./routes/index'); //file path to view index.js
 const authorRouter = require('./routes/authors')
+const bookRouter = require('./routes/books')
 
 //above is set of rule/variable/path
 //below is: process use from rule from above
@@ -49,6 +50,7 @@ db.once('open', () => console.log('Connected to Mongoose')); //run db for first 
 /* use the routes */
 app.use('/', indexRouter); //use indexRouter show the file path 
 app.use('/authors', authorRouter)
+app.use('/books', bookRouter)
 
 //want app to listen to port, env = environment
 app.listen(process.env.PORT || 27017); //node server, port 27017

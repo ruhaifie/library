@@ -1,6 +1,9 @@
+//ROUTES CONTROLLER
+
 const express = require('express')
 const router = express.Router()
-const Author = require('../models/author')
+
+const Author = require('../models/author') //models file
 
 //REST api
 

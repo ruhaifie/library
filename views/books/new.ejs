@@ -1,0 +1,18 @@
+<!-- form to create new author -->
+<!-- action:url where form goes to -->
+
+authors route file
+<h2>New Book</h2>
+<form action="/books" method="POST">
+
+    <!-- import -->
+    <%- include('_form_fields')  %>
+
+    <!-- cancel button send back to all authors page -->
+    <a href="/books">Cancel</a>
+    <button type="submit">Create</button>
+
+</form>
+
+<!-- use anchor tag to link things, button use as interact with forms or other objects -->
+<!-- install body parser, npm i body-parser .easy to access diff input element from server -->
