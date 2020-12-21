@@ -1,4 +1,4 @@
-//MODELS - handle data logig, interact with database
+//MODELS - handle data logic, interact with database
 
 /* snippet -> req */
 const mongoose = require('mongoose')

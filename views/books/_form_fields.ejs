@@ -1,0 +1,54 @@
+<!-- VIEWS -->
+
+<!-- use _ to indicatea as partial files, 
+naming convention.easy to track which file from server and from partials
+partial file, not actual file render from server -->
+
+<!-- name is how the server get the data from object
+when form sent info to server, what would be input under -->
+
+<!-- when get back from server, would call that named body.name is value of the input 
+example: name = "name2" then body.name2 -->
+<div>
+    <label>Title</label>
+    <input type="text" name="title" value="<%= book.title  %>">
+</div>
+
+<div>
+    <label>Author</label>
+
+    <select name="author">
+        <% authors.forEach(author => { %>
+        <!-- author in book MODELS is objectID -->
+        <% if (author.id === book.author) { %>
+        <option selected label="<%= author.name %>" value="<%= author.id %>">
+            <% } else { %>
+        <option label="<%= author.name %> " value="<%= author.id %> ">
+            <% } %>
+            <% }) %>
+    </select>
+</div>
+
+<div>
+    <label>Publish Date</label>
+    <!-- publishDate is inside book MODELS -->
+    <!-- date format: 2019-09-19T12:23 , split T means remove time want date only -->
+    <input type="date" name="publishDate"
+        value="<%= book.publishDate == null ? '' : book.publishDate.toISOString().split('T')[0] %> ">
+</div>
+
+<div>
+    <label>Page Count</label>
+    <!-- page cannot low than 1,thats why min= 1 -->
+    <input type="number" name="pageCount" min="1" value="<%= book.pageCount %> ">
+</div>
+
+<div>
+    <label>Cover</label>
+    <input type="file" name="cover">
+</div>
+
+<div>
+    <label>Description</label>
+    <textarea name="description"> <%= book.description %> </textarea>
+</div>
