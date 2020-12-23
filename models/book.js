@@ -3,6 +3,8 @@
 /* snippet -> req */
 const mongoose = require('mongoose')
 
+const coverImageBasePath = 'uploads/bookCovers'    //inside 
+
 /* create Schema for book*/
 const bookSchema = new mongoose.Schema({
     title: {
@@ -38,3 +40,4 @@ const bookSchema = new mongoose.Schema({
 
 //Book is title, bookSchema is variable
 module.exports = mongoose.model('Book', bookSchema)
+module.exports.coverImageBasePath = coverImageBasePath
